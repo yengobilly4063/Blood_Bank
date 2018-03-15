@@ -1,0 +1,124 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Online Blood Bank{% endblock %}</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'main-blood.css' %}">
+
+	<!-- JSS -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+	<!-- Heading here -->
+	<div class="container">
+	<div class="well">
+		<div class="row">
+			
+				<h1 align="center">Welcome to Online Blood Bank</h1>
+				{% block header %}{% endblock %}
+		</div>
+	</div>
+	</div>
+	
+
+	
+	<div class="container">
+		<div class="row">
+		<!-- Left Side/Navbar here -->
+			<div class="col-sm-2">
+				<div class="well">
+					<h4>Navigation Bar</h4><hr>
+
+					<p>{{user}}</p>
+					{% if user %}
+					<a href="{% url 'blood:login' %}">login</a>
+					{% else %}
+					<a href="{% url 'blood:logout' %}">logout</a>
+					{% endif %}
+
+					<hr>
+					<ul>
+						<li><a href="{% url 'blood:index' %}">Home</a></li>
+						<li><a href="{% url 'blood:aboutus' %}">About</a></li>
+						<li><a href="{% url 'blood:add_donor' %}">Add Donor</a></li>
+					</ul><hr>
+					{% block left-sidebar %}{% endblock %}
+				</div>
+			</div>
+
+			<!-- Body of page here -->
+			<div class="col-sm-8">
+				<div class="well">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+
+			<div class="col-sm-2">
+				<div class="well">
+					{% block right-sidebar %}{% endblock %}
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Footer content here -->
+	<div class="container">
+		<div class="row">	
+			<div class="col-sm-12">
+				<div class="well">
+					<h4 align="center">Sorted By:</h4>
+					<table class="table">
+						<tr>
+							<th style="text-align: center;" class="danger"> <a href="">A+</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">B+</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">AB</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">O+</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">CM</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">EG</a></th>
+							<th style="text-align: center;" class="danger"> <a href="">USA</a></th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block footer %}
+
+	{% endblock %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

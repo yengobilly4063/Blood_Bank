@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+		
+		
+		{% if client %}
+			
+			<div class="row">
+				<div class="col-sm-4">
+					<hp style="color: blue;"><img style="width: 240px; height: 300px;" src="{{client.image.url}}" alt="{{client.first_name}}"></p>
+				</div>
+				<div class="col-sm-8">
+					<table class="table table-striped">
+						
+						<tr>
+							<th style="text-align: center;" colspan="2" class="danger">BLOOD DONOR DETAILS</th>
+						</tr>
+						<tr>
+							<td align="center" colspan="2">Name</td>
+						</tr>
+						<tr>
+							<th style="text-align: center" class="success" colspan="2">{{client.fullName|upper}}</th>
+						</tr>
+						<tr>
+							<td align="center">Country</td>
+							<td align="center">Region</td>
+						</tr>
+						<tr>
+							<th style="text-align: center" class="success">{{client.country}}</th>
+							<th style="text-align: center" class="success">{{client.region}}</th>
+						</tr>
+						<tr>
+							<td align="center">Hospital</td>
+							<td align="center">Blood Group</td>
+						</tr>
+						<tr>
+							<th style="text-align: center" class="success">{{client.hospital}}</th>
+							<th style="text-align: center" class="success">{{client.blood_group}}</th>
+						</tr>
+						<tr>
+							<td align="center" colspan="2">Age</td>
+						</tr>
+						<tr>
+							<th colspan="2" style="text-align: center" class="success">{{client.age}}</th>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center"><a href="{% url 'blood:edit_donor' client.id %}"><button class="btn btn-primary">Edit</button></a> | <button class="btn btn-danger">Delete</button></a></td>
+						</tr>
+					</table>	
+				</div>
+			</div>
+
+
+		{% else %}
+			<h3>No Client details available</h3>
+		{% endif %}
+	{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

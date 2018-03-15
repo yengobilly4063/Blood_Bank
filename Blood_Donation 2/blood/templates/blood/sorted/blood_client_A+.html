@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+{% block title %}HomePage{% endblock %}
+
+	<!-- Heading here -->
+	{% block header %}
+	{% endblock %}
+
+
+	<!-- Left Side/Navbar here -->
+	{% block left-sidebar %}
+		
+	{% endblock %}
+	
+	<!-- Body of page here -->
+	
+	{% block content %}
+
+		<table class="table table-striped">
+			<h1 align="center">Blood Clients</h1>
+			{% if clients %}
+
+				<tr>
+					<th style="text-align: center; width: 100px">#</th>
+					<th style="text-align: left">Blood Donor</th>
+					<th style="text-align: left">Registration date</th>
+				</tr>
+				{% for client in clients %}
+					<tr>
+						<td style="text-align: center">{{forloop.counter}}</td>
+						<td style="text-align: left;"><a href="{% url 'blood:details' clients.id %}">{{client}}</a></td>
+						<td style="text-align: left">{{client.created}}</td>
+					</tr>
+				{% endfor %}
+					<tr>
+						<th style="text-align: center" colspan="3"><a href="{% url 'blood:add_donor' %}" class="btn btn-primary">Add Donor</a></th>
+					</tr>
+			{% else %}
+				<tr>
+					<th colspan="5"><h3>No Client details available</h3></th>
+				</tr>
+			{% endif %}
+		</table>
+
+	{% endblock %}
+
+	<!-- Footer content here -->
+	{% block footer %}
+
+	{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content%}
+	<h2 align="center">Edit Donor Form</h2>
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+
+		{% for field in form%}
+			<table class="table table-striped">
+				<tr>
+					<th style="width:50%; text-align: right" class="success">{{field.label_tag}}</th>
+					<td style="width:50%; text-align: left" class="danger">{{field}}</td>
+				</tr>
+			</table>
+		{% endfor%}
+		
+		<button class="btn btn-primary" type="submit">Update</button>
+	</form>
+{% endblock %}

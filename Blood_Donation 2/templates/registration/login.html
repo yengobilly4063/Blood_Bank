@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1 style="text-align: center;">Login Please</h1>
+	{% if form.errors %}
+	<p>Your username and password didn't match. Please try again.</p>
+	{% endif %}
+
+	<form method="POST" action="">
+	{% csrf_token %}
+	<table class="table">
+		<tr>
+			<td style="width:50%; text-align: right; ">{{ form.username.label_tag }}</td>
+			<td style="width:50%; text-align: left;">{{ form.username }}</td>
+		</tr>
+		<tr>
+			<td style="width:50%; text-align: right;">{{ form.password.label_tag }}</td>
+			<td style="width:50%; text-align: left;">{{ form.password }}</td>
+		</tr>
+	</table>
+	<input style="text-align: center" type="submit" value="login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
